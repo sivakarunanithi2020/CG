@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        Office.onReady(function () {
+          var addressLink = window.location.href;
+          var addressArr = addressLink.split("=");
+          var addressToken = addressArr[1];
+          var idToken = addressToken.split("&");
+          var accessToken = idToken[0];
+          Office.context.ui.messageParent(accessToken);
+        });
+      });
+    </script>
+  </body>
+</html>
